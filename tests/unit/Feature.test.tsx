@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { createMockRoom } from "@baditaflorin/mesh-common/testing";
 import { Feature } from "../../src/Feature";
 import { config } from "../../src/config";
@@ -22,5 +22,16 @@ describe("Feature (component)", () => {
     const heading = screen.getAllByRole("heading", { level: 1 })[0];
     expect(heading).toBeInTheDocument();
     expect(screen.getByText("Connecting to the listening room…")).toBeInTheDocument();
+  });
+
+  it("adds the local listener's pick to the shared queue", () => {
+    const room = createMockRoom({ peerId: "listener" });
+    render(<Feature room={room} config={config} />);
+    fireEvent.change(screen.getByLabelText("Add a track or link"), {
+      target: { value: "Lido — Sunrise" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: "Pass the pick" }));
+    expect(screen.getByText("Lido — Sunrise")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Remove Lido — Sunrise" })).toBeInTheDocument();
   });
 });
