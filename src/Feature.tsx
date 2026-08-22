@@ -14,7 +14,7 @@ export function Feature({ room, config }: Props) {
 
   return (
     <main className="feature-placeholder">
-      <h1>{config.appName}</h1>
+      <h1>Playlist Pass</h1>
       <p>{config.description}</p>
       <p className="feature-status" aria-live="polite">
         {room
