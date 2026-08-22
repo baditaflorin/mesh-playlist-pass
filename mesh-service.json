@@ -1,0 +1,7 @@
+{
+  "$schema": "https://baditaflorin.github.io/mesh-common/mesh-service.schema.json",
+  "id": "mesh-playlist-pass",
+  "category": "Creative",
+  "subcategory": "Conversation & connection",
+  "useCases": ["listening parties", "road trips", "music clubs"]
+}

@@ -1,0 +1,139 @@
+/* App-local styles. Mesh chrome (settings drawer, self-ref bar) is provided by
+ * @baditaflorin/mesh-common/styles.css imported in main.tsx. */
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  background: var(--mesh-bg);
+  color: var(--mesh-fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.feature-placeholder {
+  padding: 6rem 1.5rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.feature-placeholder h1 {
+  font-size: 1.6rem;
+  margin: 0;
+  color: var(--mesh-accent);
+}
+
+.feature-placeholder p {
+  max-width: 32rem;
+  margin: 0;
+  opacity: 0.85;
+  line-height: 1.5;
+}
+
+.track-form,
+.queue {
+  width: min(100%, 42rem);
+  text-align: left;
+  background: color-mix(in srgb, var(--mesh-bg) 84%, white 16%);
+  border: 1px solid color-mix(in srgb, var(--mesh-accent) 35%, transparent);
+  border-radius: 1rem;
+  padding: 1.25rem;
+}
+
+.track-form label,
+.queue h2 {
+  display: block;
+  margin: 0 0 0.65rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.track-entry {
+  display: flex;
+  gap: 0.6rem;
+}
+.track-entry input {
+  min-width: 0;
+  flex: 1;
+  padding: 0.7rem 0.8rem;
+  border-radius: 0.65rem;
+  border: 1px solid #64748b;
+  font: inherit;
+}
+button {
+  border: 0;
+  border-radius: 0.65rem;
+  padding: 0.7rem 0.9rem;
+  color: #15100b;
+  background: var(--mesh-accent);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+.queue ol {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.queue li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.8rem;
+  border-radius: 0.65rem;
+  background: color-mix(in srgb, var(--mesh-bg) 78%, white 22%);
+}
+.queue li span {
+  display: grid;
+  gap: 0.2rem;
+  word-break: break-word;
+}
+.queue li strong {
+  color: var(--mesh-accent);
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.now-playing {
+  outline: 2px solid var(--mesh-accent);
+}
+.remove {
+  color: inherit;
+  background: transparent;
+  outline: 1px solid #64748b;
+}
+.empty-state {
+  margin: 0;
+}
+@media (max-width: 32rem) {
+  .track-entry {
+    flex-direction: column;
+  }
+}
+
+.feature-status {
+  font-size: 0.85rem;
+  opacity: 0.6;
+  font-variant-numeric: tabular-nums;
+}
